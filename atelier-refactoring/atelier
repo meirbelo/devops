@@ -1,0 +1,94 @@
+ repositoy doit avoir  des dossier src et tests afin de separer le code des tests
+ voir les regressions de code
+
+ avoir des tests unitaires
+
+ execution de pluisieurs instances en parallele
+
+  stoper l'api correctement(cancelation token)
+
+  repository ne doivent pas reourner directement les objets DTO propre a mongo
+
+  avoi un syteme de migration mongo
+
+  IMongoConnection<> ne doit pas etre injecte dans le controller kafka
+
+   background service(bs) des conso de flux kafka appelle directement les repository  il est lie a mongo
+
+   le bs fait 1000 lignes alors qui devrait simlement consumer des flux
+
+   abstraction mongo sont inutiles car en doublon avec les classes du âcket nugget MongoDBGenericRepository
+
+   structure a adapter
+
+   -deplacer les projets SPUserApi et SPUserUI dans dossier src
+   - créer un dossie tests
+
+   modifier  du pipeline pour comiler dotnet en dehors d dockerfile
+
+   deplacer les dockerfile et modification du dockerfile de l'api
+
+   monte de version
+
+   avant de monter de version dotnet  on s'assure qu'il est testé
+
+   microsoft propose une class WebApplicationFactoring<T>pour demarrer un serveur
+   ensuite on peut faire la montee de version dotnet tranquilement  et garantir le demarrage de l'api
+
+  cette classe permet de faire des appels http sur l'api  les test integration sont simple a mettre en place
+
+  modifier   le nom spuser et spuserapi et modifier les namespaces
+  - créer un test d'integration pour s'assurer que l'api demarre
+  - enregistre le bs conditioner(environement testing)
+  -injection serveur mongo de test
+  -injection de faux ndd kafka(fake:9092)
+  et pour finir   migration vers net7.0
+  executer de nouveau test
+
+  modifier le ci-cd et dockerfile
+
+   voir c'est quoi factory avec ephemeralmongo
+
+   comprendre comment a evolué la classe program
+
+   test de demarrage ?
+   -assert 
+   -nettoyage  de test important
+
+
+   Creation du domaine
+
+   comprendre  les domaines dotnet
+
+     manipuler les opjets de domaine et arreter d'utiliser les dto de mongo
+
+     faire un projet SPUserApi.Domain
+     les enums dans SPUserApi.Enums
+     utilisation de keyword required
+     voir ce qu'est automapper
+     creer des tests unitaires pour chaque entité
+     bi ??
+     manipuler directement les objets de domain et areter d'utiliser es dto de mono
+     Creation des repository dans un nouveau projet SPUserApi.Infrastructure
+     creer des DTO propre au SGBG ???
+     -creer des profils automper
+     -creation de test unitaire pour chaqye repositories
+     
+     le bi pourra acceder au donnees sans interoger directement le sgbd
+
+     Abstractions
+
+     c'est quoi une abstractions ???
+     c'est quoi un validatores ? avec fluentValidation
+     implementer IResult avec CSharpFunctionalExtensions
+     creer des handlers avec MediatR
+     creer des tests d'integrations des handles en utilisqnt moq
+
+     -rendre le code lisible 
+     1 fonctionnalite => un handler
+     mongo fake test
+     c'est quoi un effet de bord
+     webapplicationfactory
+     mediator
+     mei
+ 
