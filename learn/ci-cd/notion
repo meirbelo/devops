@@ -1,0 +1,23 @@
+pratique de ci-cd 
+
+utilisation d'une pipeline de build afin de tester atomatiquement  les environement en test et prod
+
+automatiser les tests
+
+en cas de refactoring l'automatisation des test est indispensable
+
+il faut retenir 2 choses du concept  de la pyramide de tests
+1) ecrire des tests avec une granularite differente
+2) plus on obient un niveau eleve moins on devra passer de test
+
+la pyramide de test consiste a avoir en 1ere couche(test unitaires) une base solide de test qui sont rapides a executer et testent des unites de code isole
+au dessus on aurait une couche intermediaire de test d'integration qui sont un peu plus lent et testent l'integration entre differentes unite de codes ou systemes. et au sommet avoir quelque test d'acceptation ou test end to end qui sont plus lent a executer mais qui testent le systeme dans son ensemble
+la bonne pratique est donc la pyramide de test a l'inverse le cornet de glace serait d'avoir beaucoup de test end to end lent et fragiles un nombre moyen de test d'integration et tres peu de test unitaiare rapides le cycle de développement peut devenir lent et inefficace, car les tests end-to-end sont souvent plus coûteux en temps et en ressources à maintenir et à exécuter.
+
+OUTILS INTERESSANT 
+  UNIT 
+  MOCKITO
+  WIREMOCK
+  SELENIUM
+  REST_ASSURED
+
